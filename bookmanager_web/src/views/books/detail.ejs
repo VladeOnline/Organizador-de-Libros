@@ -1,0 +1,22 @@
+﻿<%- include('../partials/head', { title }) %>
+<%- include('../partials/header', { currentUser }) %>
+
+<section class="card">
+  <h1><%= book.title %></h1>
+  <p><strong>Autor:</strong> <%= book.author %></p>
+  <p><strong>Genero:</strong> <%= book.genre || 'No especificado' %></p>
+  <p>
+    <strong>Fecha de publicacion:</strong>
+    <%= book.publishDate ? new Date(book.publishDate).toLocaleDateString('es-GT') : 'No definida' %>
+  </p>
+  <p><strong>Estado:</strong> <span class="badge"><%= book.readingStatus %></span></p>
+  <p><strong>Descripcion:</strong></p>
+  <p><%= book.description || 'Sin descripcion.' %></p>
+
+  <div class="actions">
+    <a class="btn" href="/libros/<%= book._id %>/editar">Editar</a>
+    <a class="btn secondary" href="/libros">Volver a la lista</a>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,19 @@
+﻿<header class="topbar">
+  <div class="container topbar-content">
+    <a href="/" class="brand">Organizador de Libros</a>
+    <nav>
+      <% if (currentUser) { %>
+      <a href="/dashboard">Inicio</a>
+      <a href="/libros">Mis libros</a>
+      <a href="/libros/nuevo">Agregar libro</a>
+      <form action="/logout" method="POST" class="inline-form">
+        <button type="submit" class="link-btn">Salir</button>
+      </form>
+      <% } else { %>
+      <a href="/login">Login</a>
+      <a href="/registro">Registro</a>
+      <% } %>
+    </nav>
+  </div>
+</header>
+<main class="container main-content">

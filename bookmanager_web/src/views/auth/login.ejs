@@ -1,0 +1,33 @@
+﻿<%- include('../partials/head', { title }) %>
+<%- include('../partials/header', { currentUser }) %>
+
+<section class="card auth-card">
+  <h1>Iniciar sesion</h1>
+  <p>Accede para administrar tu coleccion.</p>
+
+  <% if (errors && errors.length) { %>
+  <ul class="errors">
+    <% errors.forEach((error) => { %>
+    <li><%= error %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+  <form action="/login" method="POST" class="form-grid">
+    <label>
+      Correo
+      <input type="email" name="email" value="<%= form.email || '' %>" required />
+    </label>
+
+    <label>
+      Contraseña
+      <input type="password" name="password" required />
+    </label>
+
+    <button type="submit" class="btn">Entrar</button>
+  </form>
+
+  <p class="small">¿Aun no tienes cuenta? <a href="/registro">Registrate</a></p>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,38 @@
+﻿<%- include('../partials/head', { title }) %>
+<%- include('../partials/header', { currentUser }) %>
+
+<section class="card auth-card">
+  <h1>Registro</h1>
+  <p>Crea tu cuenta para administrar tus libros.</p>
+
+  <% if (errors && errors.length) { %>
+  <ul class="errors">
+    <% errors.forEach((error) => { %>
+    <li><%= error %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+  <form action="/registro" method="POST" class="form-grid">
+    <label>
+      Nombre
+      <input type="text" name="name" value="<%= form.name || '' %>" required />
+    </label>
+
+    <label>
+      Correo
+      <input type="email" name="email" value="<%= form.email || '' %>" required />
+    </label>
+
+    <label>
+      Contraseña
+      <input type="password" name="password" required minlength="6" />
+    </label>
+
+    <button type="submit" class="btn">Registrarme</button>
+  </form>
+
+  <p class="small">¿Ya tienes cuenta? <a href="/login">Inicia sesion</a></p>
+</section>
+
+<%- include('../partials/footer') %>

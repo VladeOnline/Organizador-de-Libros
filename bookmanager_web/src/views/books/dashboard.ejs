@@ -1,0 +1,19 @@
+﻿<%- include('../partials/head', { title }) %>
+<%- include('../partials/header', { currentUser }) %>
+
+<section class="card">
+  <h1>Bienvenido, <%= currentUser ? currentUser.name : 'Usuario' %></h1>
+  <p>Administra tu coleccion personal de libros de forma segura.</p>
+  <div class="stats">
+    <div>
+      <strong><%= booksCount %></strong>
+      <span>libros registrados</span>
+    </div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="/libros">Ver mis libros</a>
+    <a class="btn secondary" href="/libros/nuevo">Agregar libro</a>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,54 @@
+﻿<%- include('../partials/head', { title }) %>
+<%- include('../partials/header', { currentUser }) %>
+
+<section class="card">
+  <h1>Agregar libro</h1>
+
+  <% if (errors && errors.length) { %>
+  <ul class="errors">
+    <% errors.forEach((error) => { %>
+    <li><%= error %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+
+  <form action="/libros" method="POST" class="form-grid">
+    <label>
+      Titulo
+      <input type="text" name="title" value="<%= form.title || '' %>" required />
+    </label>
+
+    <label>
+      Autor
+      <input type="text" name="author" value="<%= form.author || '' %>" required />
+    </label>
+
+    <label>
+      Genero
+      <input type="text" name="genre" value="<%= form.genre || '' %>" />
+    </label>
+
+    <label>
+      Fecha de publicacion
+      <input type="date" name="publishDate" value="<%= form.publishDate || '' %>" />
+    </label>
+
+    <label>
+      Estado de lectura
+      <select name="readingStatus" required>
+        <% statuses.forEach((status) => { %>
+        <option value="<%= status %>" <%= form.readingStatus === status ? 'selected' : '' %>><%= status %></option>
+        <% }) %>
+      </select>
+    </label>
+
+    <label>
+      Descripcion
+      <textarea name="description" rows="4"><%= form.description || '' %></textarea>
+    </label>
+
+    <button type="submit" class="btn">Guardar libro</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>
