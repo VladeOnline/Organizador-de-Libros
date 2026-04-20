@@ -1,0 +1,6 @@
+backend/node_modules/
+backend/.env
+backend/.env.local
+organizador_de_libros/.dart_tool/
+organizador_de_libros/.packages
+organizador_de_libros/build/

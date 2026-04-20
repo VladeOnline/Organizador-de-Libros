@@ -1,17 +1,33 @@
-# organizador_de_libros
+# Frontend Flutter Web - Organizador de Libros
 
-A new Flutter project.
+## Ejecutar
 
-## Getting Started
+```bash
+flutter pub get
+flutter run -d chrome
+```
 
-This project is a starting point for a Flutter application.
+## Configuración de API
 
-A few resources to get you started if this is your first Flutter project:
+Editar `lib/core/constants.dart`:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+```dart
+static const String baseUrl = 'http://localhost:4000/api';
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Pantallas
+
+- Login
+- Registro
+- Home/Dashboard con:
+  - Lista de libros
+  - Búsqueda por título o autor
+  - Crear libro
+  - Editar libro
+  - Eliminar libro
+
+## Validaciones
+
+- Campos obligatorios en auth y libros
+- Contraseña mínima de 6 caracteres
+- Validación básica de correo
