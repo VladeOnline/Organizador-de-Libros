@@ -2,6 +2,11 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
+const isValidEmail = (value) => {
+  const email = (value || "").trim();
+  return email.includes("@");
+};
+
 const buildAuthResponse = (user) => {
   const token = jwt.sign(
     { userId: user._id.toString(), correo: user.correo },
@@ -26,6 +31,12 @@ const register = async (req, res) => {
     return res
       .status(400)
       .json({ message: "Nombre, correo y contraseña son obligatorios" });
+  }
+
+  if (!isValidEmail(correo)) {
+    return res
+      .status(400)
+      .json({ message: "El correo debe contener @" });
   }
 
   if (password.length < 6) {
@@ -57,6 +68,12 @@ const login = async (req, res) => {
     return res
       .status(400)
       .json({ message: "Correo y contraseña son obligatorios" });
+  }
+
+  if (!isValidEmail(correo)) {
+    return res
+      .status(400)
+      .json({ message: "El correo debe contener @" });
   }
 
   const correoNormalizado = correo.trim().toLowerCase();
