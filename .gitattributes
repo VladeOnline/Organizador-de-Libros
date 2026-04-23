@@ -1,0 +1,8 @@
+* text=auto
+
+# Keep source files with LF to avoid noisy CRLF diffs on Windows.
+*.swift text eol=lf
+*.dart text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf

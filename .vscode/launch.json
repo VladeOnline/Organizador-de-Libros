@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Flutter Web (Chrome 3000)",
+      "request": "launch",
+      "type": "dart",
+      "program": "organizador_de_libros/lib/main.dart",
+      "args": ["-d", "chrome", "--web-port", "3000"]
+    }
+  ]
+}
